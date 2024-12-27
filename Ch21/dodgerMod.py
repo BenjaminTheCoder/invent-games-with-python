@@ -17,12 +17,12 @@ INCREASEBADDIERSPEEDEVERYNPOINTS = 1000
 INCREASEBADDIESPEEDBY = 1
 TITLE = 'The Legend of Zelda: Mountain Chaos'
 
-file = open('TopScore.txt', 'r')
+file = open('Ch21/TopScore.txt', 'r')
 topScore = int(file.read().strip())
 file.close()
 
 def terminate():
-    file = open('TopScore.txt','w')
+    file = open('Ch21/TopScore.txt','w')
     file.write(str(topScore))
     file.close()
     pygame.quit()
@@ -49,20 +49,21 @@ def drawText(text, font, surface, x, y):
 
 pygame.init()
 mainClock = pygame.time.Clock()
-windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)
+# windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), pygame.FULLSCREEN)
+windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
 pygame.display.set_caption(TITLE)
 pygame.mouse.set_visible(False)
 
 font = pygame.font.SysFont(None, 48)
 
-gameOverSound = pygame.mixer.Sound('lttp_link_dying.mp3')
-pygame.mixer.music.load('death-mountain-2.mid')
+gameOverSound = pygame.mixer.Sound('Ch21/lttp_link_dying.mp3')
+pygame.mixer.music.load('Ch21/death-mountain-2.mid')
 
-playerImage = pygame.image.load('link.png')
+playerImage = pygame.image.load('Ch21/link.png')
 playerStretchedImage = pygame.transform.scale(playerImage, (PLAYERSIZE, PLAYERSIZE))
 playerRect = playerStretchedImage.get_rect()
-baddieImage = pygame.image.load('boulder2.png')
-bgImage = pygame.image.load("Death-Mountain.png")
+baddieImage = pygame.image.load('Ch21/boulder2.png')
+bgImage = pygame.image.load("Ch21/Death-Mountain.png")
 
 windowSurface.fill(BACKGROUNDCOLOR)
 drawText(TITLE, font, windowSurface, (WINDOWWIDTH / 6), (WINDOWHEIGHT / 3))
